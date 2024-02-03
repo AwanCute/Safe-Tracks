@@ -178,7 +178,8 @@ public class CameraActivity extends Activity implements CameraBridgeViewBase.CvC
         }
     }
 
-    @Override
+    @Override  // Handling sensor data changes.
+    // Includes orientation checks and triggering text-to-speech announcements based on device orientation.
     public void onSensorChanged(SensorEvent event) {
         if (event.sensor == accelerometer) {
             // Get accelerometer data
@@ -291,7 +292,7 @@ public class CameraActivity extends Activity implements CameraBridgeViewBase.CvC
             runOnUiThread(() -> {
                 textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null, null);
                 vibrate(200);
-                Log.d("TTSDOG", "Speaking: " + text);
+                Log.d("TTS", "Speaking: " + text);
             });
             lastAnnouncementTime = currentTime;
         }
@@ -299,10 +300,9 @@ public class CameraActivity extends Activity implements CameraBridgeViewBase.CvC
                 runOnUiThread(() -> {
                     textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null, null);
                     vibrate(200);
-                    Log.d("TTSDOG", "Speaking: " + text);
+                    Log.d("TTS", "Speaking: " + text);
                 });
             }
-            //Log.d("TTSDOG", "Cooldown period, skipping announcement");
         }
 
     // Method to check if Text-to-Speech is currently speaking
