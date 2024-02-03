@@ -168,8 +168,8 @@ public class objectDetectorClass {
                 float boxSize = boxWidth * boxHeight;
 
                 // Log the size of the bounding box
-                Log.d("ObjectDetectionBoundingBoxSize", "Bounding Box Size: " + boxSize);
-                Log.d("ObjectDetectionBoundingBoxSize", "Min Size Threshold: " + minSizeThreshold);
+                Log.d("objectboxsize", "Bounding Box Size: " + boxSize);
+                Log.d("objectboxsize", "Min Size Threshold: " + minSizeThreshold);
 
                 if(boxSize >= closeToTheTrain)
                 {
